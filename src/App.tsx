@@ -128,6 +128,14 @@ export const App = () => {
                 />
             </div>
 
+            <div className="flex space-x-4 bg-black">
+                <HeadLineCard
+                    title="Headline goes here"
+                    text="Lorem ipsum dolor sit amet consectetur."
+                    lightTheme={false}
+                />
+            </div>
+
             <div style={{display: 'flex', justifyContent: 'center', margin: "1em", gap: "20px", backgroundColor: "black"}}>
 
                 <Card
