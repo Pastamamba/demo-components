@@ -22,10 +22,6 @@ const InputComponent: React.FC<InputProps> = ({
         setInputText(text);
     }, [text]);
 
-    useEffect(() => {
-        setIsFilled(inputText !== '' && !isTyping);
-    }, [inputText, isTyping]);
-
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsTyping(true);
         setInputText(event.target.value);
@@ -34,12 +30,20 @@ const InputComponent: React.FC<InputProps> = ({
         }
     };
 
+
+    useEffect(() => {
+        setIsFilled(inputText !== '' && !isTyping);
+    }, [inputText, isTyping]);
+
+
+
     const handleBlur = () => {
         setIsTyping(false);
         setHasError(inputText === ''); // You can add more validation logic here
     };
 
-    const baseStyles = 'border-1 rounded-full border-slate-3 p-2 outline-none w-full transition duration-300';
+    const typingBgColor = isTyping ? (lightScheme ? 'bg-oxfordBlue-6' : 'bg-slate-1') : '';
+    const baseStyles = 'border-1 rounded-full border-slate-3 p-2 outline-none w-full transition duration-300 border-solid border-2';
     const textColor = lightScheme ? 'text-black' : 'text-white';
     const filledBorderColor = isFilled ? (lightScheme ? 'border-slate-5 bg-oxfordBlue-5' : 'border-neutrals-white bg-oxfordBlue-2') : '';
     const borderColor = hasError ? 'border-fireRed-2 bg-fireRed-5' : filledBorderColor;
@@ -48,13 +52,13 @@ const InputComponent: React.FC<InputProps> = ({
     const checkMarkColor = lightScheme ? 'text-neutrals-black' : 'text-neutrals-white';
 
     return (
-        <div className="relative">
+        <div className="relative border-1">
             <input
                 type="text"
                 value={inputText}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                className={`${baseStyles} ${textColor} ${placeholderColor} ${borderColor}
+                className={`${baseStyles} ${textColor} ${placeholderColor} ${borderColor} ${typingBgColor}
                 ${isDisabled ? 'cursor-not-allowed opacity-50' : 'cursor-text'}`}
                 placeholder="Jméno"
                 disabled={isDisabled}
