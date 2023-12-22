@@ -13,7 +13,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ image, title, description, tags, date, isActive }) => {
     const [isHovering, setIsHovering] = useState(false);
-    const baseStyles = 'rounded-lg overflow-hidden shadow-md max-w-xs mx-auto transition duration-200 ease-in-out';
+    const baseStyles = 'rounded-lg overflow-hidden shadow-md max-w-xs mx-auto transition duration-200 ease-in-out w-96';
     const hoverStyles = 'hover:shadow-lg';
     const imageStyles = 'w-full object-cover'; // object-cover to ensure the image covers the div nicely
     const tagContainerStyles = 'absolute top-0 left-0 mt-2 ml-2';
