@@ -56,7 +56,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 
     return (
         <button
-            className={`border-none rounded-full px-5 py-2 flex items-center text-lg justify-center gap-2.5 ${backgroundColorClass} ${textColorClass} mr-1 ml-1`}
+            className={`border-none rounded-full px-5 py-1 flex items-center text-base justify-center gap-2.5 ${backgroundColorClass} ${textColorClass} mr-1 ml-1`}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             disabled={isDisabled}
@@ -64,13 +64,11 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 
             {isHovering || isActive ? <>
                 <span className="ml-2">{text}</span>
-                <div className={`flex items-center justify-center ${signalBgClass} rounded-full`}
-                     style={{width: '56px', height: '56px'}}>
+                <div className={`flex items-center justify-center ${signalBgClass} rounded-full w-10 h-10`}>
                     <SignalSvg fill={signalColorClass}/>
                 </div>
             </> : <>
-                <div className={`flex items-center justify-center ${signalBgClass} rounded-full`}
-                     style={{width: '56px', height: '56px'}}>
+                <div className={`flex items-center justify-center ${signalBgClass} rounded-full w-10 h-10`}>
                     <SignalSvg fill={signalColorClass}/>
                 </div>
                 <span className="ml-2">{text}</span>
