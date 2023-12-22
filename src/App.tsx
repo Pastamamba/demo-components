@@ -62,16 +62,18 @@ export const App = () => {
             <div style={{display: 'flex', justifyContent: "center"}}>
 
                 <div
-                    style={{display: 'flex', justifyContent: 'center', margin: "1em", flexDirection: "column", width: "200px", gap: "20px"}}>
+                    style={{display: 'flex', justifyContent: 'center', margin: "1em", flexDirection: "column", gap: "20px"}}>
                     <CustomButton
                         lightScheme={true}
                         text="Button Text"
                         isActive={false}
+                        size={size}
                         isDisabled={false}
                     />
 
                     <CustomButton
                         lightScheme={true}
+                        size={size}
                         text="Button Text"
                         isActive={true}
                         isDisabled={false}
@@ -79,6 +81,7 @@ export const App = () => {
 
                     <CustomButton
                         lightScheme={true}
+                        size={size}
                         text="Button Text"
                         isActive={false}
                         isDisabled={true}
@@ -86,9 +89,10 @@ export const App = () => {
                 </div>
 
                 <div
-                    style={{display: 'flex', justifyContent: 'center', backgroundColor: "black", margin: "1em", flexDirection: "column", width: "200px", gap: "20px"}}>
+                    style={{display: 'flex', justifyContent: 'center', backgroundColor: "black", margin: "1em", flexDirection: "column", gap: "20px"}}>
                     <CustomButton
                         lightScheme={false}
+                        size={size}
                         text="Button Text"
                         isActive={false}
                         isDisabled={false}
@@ -96,6 +100,7 @@ export const App = () => {
 
                     <CustomButton
                         lightScheme={false}
+                        size={size}
                         text="Button Text"
                         isActive={true}
                         isDisabled={false}
@@ -103,6 +108,7 @@ export const App = () => {
 
                     <CustomButton
                         lightScheme={false}
+                        size={size}
                         text="Button Text"
                         isActive={false}
                         isDisabled={true}

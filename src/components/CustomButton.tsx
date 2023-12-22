@@ -6,6 +6,7 @@ type CustomButtonProps = {
     text: string;
     isActive?: boolean;
     isDisabled?: boolean;
+    size?: 'S' | 'M' | 'L';
 };
 
 const getTextColor = (lightScheme: boolean, isActive: boolean, isHovering: boolean, isDisabled: boolean) => {
@@ -40,6 +41,7 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
                                                               text,
                                                               isActive = false,
                                                               isDisabled = false,
+                                                              size = 'S' // Default size is Medium
                                                           }) => {
     const [isHovering, setIsHovering] = useState(false);
     const [backgroundColorClass, setBackgroundColorClass] = useState("");
@@ -54,9 +56,26 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
         setTextColorClass(getTextColor(lightScheme, isActive, isHovering, isDisabled));
     }, [lightScheme, isActive, isDisabled, isHovering]);
 
+    // Size-dependent styles
+    const buttonSizeStyles = {
+        S: 'text-sm px-3 py-0.5', // Small size
+        M: 'text-base px-5 py-1', // Medium size (default)
+        L: 'text-base px-5 py-1'    // Large size
+    };
+
+    // Size-dependent styles
+    const signalSizeStyles = {
+        S: 'w-8 h-8', // Small size
+        M: 'w-10 h-10', // Medium size (default)
+        L: 'w-10 h-10'    // Large size
+    };
+
+    // Combine dynamic classes with size class for the final button style
+    const buttonClasses = `border-none rounded-full flex items-center justify-center gap-2.5 ${buttonSizeStyles[size]} ${backgroundColorClass} ${textColorClass} mr-1 ml-1 transition duration-150 ease-in-out`;
+
     return (
         <button
-            className={`border-none rounded-full px-5 py-1 flex items-center text-base justify-center gap-2.5 ${backgroundColorClass} ${textColorClass} mr-1 ml-1`}
+            className={buttonClasses}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             disabled={isDisabled}
@@ -64,11 +83,11 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 
             {isHovering || isActive ? <>
                 <span className="ml-2">{text}</span>
-                <div className={`flex items-center justify-center ${signalBgClass} rounded-full w-10 h-10`}>
+                <div className={`flex items-center justify-center ${signalBgClass} rounded-full ${signalSizeStyles[size]}`}>
                     <SignalSvg fill={signalColorClass}/>
                 </div>
             </> : <>
-                <div className={`flex items-center justify-center ${signalBgClass} rounded-full w-10 h-10`}>
+                <div className={`flex items-center justify-center ${signalBgClass} rounded-full ${signalSizeStyles[size]}`}>
                     <SignalSvg fill={signalColorClass}/>
                 </div>
                 <span className="ml-2">{text}</span>
