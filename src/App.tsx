@@ -134,8 +134,9 @@ export const App = () => {
                     <Button isActive={false} size={size} isDisabled={true} direction={"right"}/>
                 </div>
             </div>
-                <div className="flex space-x-4">
+                <div className="flex space-x-4" style={{width: "400px"}}>
                     <HeadLineCard
+                        size={size}
                         title="Headline goes here"
                         text="Lorem ipsum dolor sit amet consectetur."
                         lightTheme={true}
@@ -144,6 +145,7 @@ export const App = () => {
 
                 <div className="flex space-x-4 bg-black">
                     <HeadLineCard
+                        size={size}
                         title="Headline goes here"
                         text="Lorem ipsum dolor sit amet consectetur."
                         lightTheme={false}
