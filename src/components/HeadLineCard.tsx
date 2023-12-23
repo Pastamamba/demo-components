@@ -15,19 +15,19 @@ const HeadLineCard: React.FC<HeadLineCardProps> = ({
                                                        lightTheme = true,
                                                        size = 'M'
                                                    }) => {
+    const [hovered, setHovered] = useState(false);
     // Base styles for the card
     const baseStyles = 'transition duration-300 ease-in-out overflow-hidden rounded-lg cursor-pointer flex flex-col items-start';
     // Text color based on light or dark theme
     const textStyles = lightTheme ? 'text-black' : 'text-white';
     // Background color styles
-    const bgStyles = lightTheme ? 'bg-white' : 'bg-gray-800';
+    const bgStyles = lightTheme ? '' : (hovered ? 'bg-oxfordBlue-2' : '');
     // Hover styles for the SVG icon
     const svgHoverStyles = lightTheme ? 'group-hover:text-black' : 'group-hover:text-white';
 
-    const [hovered, setHovered] = useState(false);
 
     // Determine the fill color for CheckMarkSvg or SignalSvg based on lightTheme and hovered state
-    const svgFillColor = lightTheme ? (hovered ? 'black' : 'red') : (hovered ? 'white' : 'black');
+    const svgFillColor = lightTheme ? (hovered ? 'black' : 'red') : (hovered ? 'white' : 'red');
 
     const handleMouseEnter = () => {
         setHovered(true);
