@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { SignalSvg } from "./utils/SignalSvg.tsx";
-import { CheckMarkSvg } from "./utils/CheckMarkSvg.tsx";
+import React, {useState} from 'react';
+import {SignalSvg} from "./utils/SignalSvg.tsx";
+import {CheckMarkSvg} from "./utils/CheckMarkSvg.tsx";
 
 interface HeadLineCardProps {
     title: string;
@@ -45,7 +45,7 @@ const HeadLineCard: React.FC<HeadLineCardProps> = ({
         >
             <div className={`transition-transform duration-300 ease-in-out ${svgHoverStyles}`}>
                 {/* Render the SVG component with the appropriate fill color */}
-                {size === 'S' ? <CheckMarkSvg fill={svgFillColor} /> : <SignalSvg fill={svgFillColor} />}
+                {size === 'S' ? <CheckMarkSvg fill={svgFillColor}/> : <SignalSvg fill={svgFillColor}/>}
             </div>
             <div className="mt-4"> {/* Add margin-top to separate SVG from the text */}
                 <h3 className={`font-semibold text-lg ${textStyles}`}>{title}</h3>

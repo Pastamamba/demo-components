@@ -22,6 +22,7 @@ module.exports = {
           5: "#ec9898",
           6: "#f4caca",
           7: "#f9e3e3",
+          8: "#1e0b1c",
         },
         slate: {
           1: "#5d6775",
