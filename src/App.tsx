@@ -134,7 +134,7 @@ export const App = () => {
                     <Button isActive={false} size={size} isDisabled={true} direction={"right"}/>
                 </div>
             </div>
-                <div className="flex space-x-4" style={{width: "400px"}}>
+                <div className="flex space-x-4 w-1/4 p-4">
                     <HeadLineCard
                         size={size}
                         title="Headline goes here"
@@ -143,7 +143,7 @@ export const App = () => {
                     />
                 </div>
 
-                <div className="flex space-x-4 bg-black">
+                <div className="flex space-x-4 bg-black w-1/4 p-4">
                     <HeadLineCard
                         size={size}
                         title="Headline goes here"

@@ -1,6 +1,6 @@
-import React from 'react';
-import {SignalSvg} from "./utils/SignalSvg.tsx";
-import {CheckMarkSvg} from "./utils/CheckMarkSvg.tsx";
+import React, { useState } from 'react';
+import { SignalSvg } from "./utils/SignalSvg.tsx";
+import { CheckMarkSvg } from "./utils/CheckMarkSvg.tsx";
 
 interface HeadLineCardProps {
     title: string;
@@ -24,11 +24,28 @@ const HeadLineCard: React.FC<HeadLineCardProps> = ({
     // Hover styles for the SVG icon
     const svgHoverStyles = lightTheme ? 'group-hover:text-black' : 'group-hover:text-white';
 
+    const [hovered, setHovered] = useState(false);
+
+    // Determine the fill color for CheckMarkSvg or SignalSvg based on lightTheme and hovered state
+    const svgFillColor = lightTheme ? (hovered ? 'black' : 'red') : (hovered ? 'white' : 'black');
+
+    const handleMouseEnter = () => {
+        setHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setHovered(false);
+    };
+
     return (
-        <div className={`${baseStyles} ${bgStyles} p-4 w-full`}>
+        <div
+            className={`${baseStyles} ${bgStyles} p-4 w-full`}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
             <div className={`transition-transform duration-300 ease-in-out ${svgHoverStyles}`}>
                 {/* Render the SVG component with the appropriate fill color */}
-                {size === 'S' ? <CheckMarkSvg fill={lightTheme ? 'black' : "white"} /> : <SignalSvg fill={'red'}/>}
+                {size === 'S' ? <CheckMarkSvg fill={svgFillColor} /> : <SignalSvg fill={svgFillColor} />}
             </div>
             <div className="mt-4"> {/* Add margin-top to separate SVG from the text */}
                 <h3 className={`font-semibold text-lg ${textStyles}`}>{title}</h3>
